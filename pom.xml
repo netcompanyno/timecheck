@@ -6,7 +6,7 @@
 
     <groupId>com.netcompany</groupId>
     <artifactId>timecheck</artifactId>
-    <version>1.4</version>
+    <version>1.5-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
