@@ -7,6 +7,7 @@ import com.opencsv.bean.CsvToBeanBuilder;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -97,7 +98,7 @@ public class TimeChecker {
     }
 
     private List<CSVNavRegistration> readNavRegistrations(final String csvNavPath) {
-        try (final Reader reader = Files.newBufferedReader(Paths.get(csvNavPath))) {
+        try (final Reader reader = Files.newBufferedReader(Paths.get(csvNavPath), Charset.defaultCharset())) {
             final CsvToBean<CSVNavRegistration> csvToBean =
                     new CsvToBeanBuilder<CSVNavRegistration>(reader).withType(CSVNavRegistration.class)
                                                                      .withIgnoreLeadingWhiteSpace(true)
