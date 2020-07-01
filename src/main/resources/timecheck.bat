@@ -1,0 +1,1 @@
+java -jar ${project.artifactId}-${project.version}.${project.packaging} Jira-report.csv Nav-report.csv
