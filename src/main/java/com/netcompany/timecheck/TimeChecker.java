@@ -84,7 +84,9 @@ public class TimeChecker {
     }
 
     private List<CSVJiraRegistration> readJiraRegistrations(final String csvJiraPath) {
-        try (final Reader reader = Files.newBufferedReader(Paths.get(csvJiraPath))) {
+        try (final Reader reader =
+                     Files.newBufferedReader(Paths.get(csvJiraPath),
+                                             Charset.forName(PropertiesReader.getString("encoding.jira")))) {
             final CsvToBean<CSVJiraRegistration> csvToBean =
                     new CsvToBeanBuilder<CSVJiraRegistration>(reader).withType(CSVJiraRegistration.class)
                                                                      .withIgnoreLeadingWhiteSpace(true)
@@ -98,7 +100,9 @@ public class TimeChecker {
     }
 
     private List<CSVNavRegistration> readNavRegistrations(final String csvNavPath) {
-        try (final Reader reader = Files.newBufferedReader(Paths.get(csvNavPath), Charset.defaultCharset())) {
+        try (final Reader reader =
+                     Files.newBufferedReader(Paths.get(csvNavPath),
+                                             Charset.forName(PropertiesReader.getString("encoding.nav")))) {
             final CsvToBean<CSVNavRegistration> csvToBean =
                     new CsvToBeanBuilder<CSVNavRegistration>(reader).withType(CSVNavRegistration.class)
                                                                      .withIgnoreLeadingWhiteSpace(true)

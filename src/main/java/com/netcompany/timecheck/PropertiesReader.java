@@ -15,7 +15,7 @@ public class PropertiesReader {
     private static PropertyResourceBundle getBundle() {
         if (resourceBundle == null) {
             try {
-                resourceBundle = new PropertyResourceBundle(Files.newInputStream(Paths.get("dateformats.properties")));
+                resourceBundle = new PropertyResourceBundle(Files.newInputStream(Paths.get("formats.properties")));
             } catch (IOException e) {
                 throw new RuntimeException("Klarte ikke lese properties", e);
             }
